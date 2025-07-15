@@ -2,67 +2,145 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shailesh Singh | Cancer Biologist</title>
-  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    header {
+      background-image: url('banner.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 150px;
+      color: yellow;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+    }
+    header h1 {
+      font-size: 2rem;
+      text-shadow: 2px 2px 5px #000;
+      margin-bottom: 10px;
+    }
+    nav {
+      background-color: rgba(0, 0, 0, 0.7);
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+    nav li {
+      margin: 0;
+    }
+    nav a {
+      display: block;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: white;
+    }
+    nav a:hover {
+      background-color: #575757;
+    }
+    .tab {
+      display: none;
+      padding: 20px;
+      background: #fff;
+      margin: 10px auto;
+      max-width: 1000px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .active-tab {
+      display: block;
+    }
+    .about-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .profile-pic {
+      width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px gray;
+    }
+    .bio {
+      flex: 1;
+    }
+  </style>
+  <script>
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => tab.classList.remove('active-tab'));
+      document.getElementById(tabId).classList.add('active-tab');
+    }
+    window.onload = () => showTab('about');
+  </script>
 </head>
 <body>
   <header>
-    <img src="banner.jpg" alt="Banner" class="banner">
+    <h1>Shailesh Singh, PhD</h1>
     <nav>
-      <ul class="navbar">
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#research">Research Activity</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#youtube">YouTube</a></li>
-        <li><a href="#contact">Contact Me</a></li>
+      <ul>
+        <li><a href="#" onclick="showTab('about')">About Me</a></li>
+        <li><a href="#" onclick="showTab('publications')">Publications</a></li>
+        <li><a href="#" onclick="showTab('research')">Research Activity</a></li>
+        <li><a href="#" onclick="showTab('services')">Services</a></li>
+        <li><a href="#" onclick="showTab('youtube')">YouTube</a></li>
+        <li><a href="#" onclick="showTab('contact')">Contact Me</a></li>
       </ul>
     </nav>
   </header>
 
-  <section id="about">
+  <div class="tab" id="about">
     <div class="about-container">
-      <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+      <img src="profile.jpg" alt="Shailesh Singh" class="profile-pic" />
       <div class="bio">
         <h2>About Me</h2>
         <p>I am a cancer biologist with a strong interest in deciphering the molecular and cellular mechanisms that drive cancer progression, therapy resistance, and tumor–immune interactions. My current research emphasizes racial disparities in cancer and investigates critical signaling pathways, including Notch and the PPARγ–ELF3 axis.</p>
-        <p>I earned my PhD in Zoology from the prestigious Banaras Hindu University (BHU), India, where I developed a solid foundation in computational biology and insect ecology...</p>
+        <p>I earned my PhD in Zoology from the prestigious Banaras Hindu University (BHU), India, where I developed a solid foundation in computational biology and insect ecology. During my doctoral research, I discovered a novel autosomal recessive eye color mutant—termed the golden brown eye mutant—in Zeugodacus cucurbitae, adding to the understanding of genetic regulation in insect models.</p>
+        <p>Following my PhD, I completed a postdoctoral fellowship at the University of Miami, Sylvester Comprehensive Cancer Center, where I expanded my expertise in cancer biology, immuno-oncology, and bioinformatics.</p>
+        <p>My technical competencies include single-cell and bulk RNA sequencing and analysis, flow cytometry, mammalian cell culture, in vivo mouse models, and patient-derived tumor models. I am proficient in computational workflows, differential gene expression analysis, and trajectory inference. I actively contribute to collaborative projects involving data analysis, figure generation, and manuscript development.</p>
+        <p>Outside the lab, I am passionate about science communication, staying current with advances in cancer research and immunology, and mentoring early-career researchers in both experimental and computational aspects of biomedical science.</p>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section id="publications">
+  <div class="tab" id="publications">
     <h2>Publications</h2>
-    <p>Under construction...</p>
-  </section>
+    <p>Under construction.</p>
+  </div>
 
-  <section id="research">
+  <div class="tab" id="research">
     <h2>Research Activity</h2>
-    <p>Under construction...</p>
-  </section>
+    <p>Under construction.</p>
+  </div>
 
-  <section id="services">
+  <div class="tab" id="services">
     <h2>Services</h2>
     <ul>
-      <li>Single cell RNA-seq analysis</li>
-      <li>Bulk RNA-seq analysis</li>
+      <li>Single cell RNA seq analysis</li>
+      <li>Bulk RNA seq analysis</li>
     </ul>
-  </section>
+  </div>
 
-  <section id="youtube">
-    <h2>YouTube</h2>
-    <p>Coming soon...</p>
-  </section>
+  <div class="tab" id="youtube">
+    <h2>YouTube Channel</h2>
+    <p>Coming soon.</p>
+  </div>
 
-  <section id="contact">
+  <div class="tab" id="contact">
     <h2>Contact Me</h2>
     <p>Email: sshailesh165@gmail.com</p>
-    <p>Alternate: shailesh.singh1@bhu.ac.in</p>
-  </section>
-
-  <footer>
-    <p>© Shailesh Singh | 2025</p>
-  </footer>
+    <p>Email: shailesh.singh1@bhu.ac.in</p>
+  </div>
 </body>
 </html>
