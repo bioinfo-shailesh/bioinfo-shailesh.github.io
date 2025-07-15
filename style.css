@@ -1,28 +1,73 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f7f9fa;
   margin: 0;
   padding: 0;
-  color: #333;
+  line-height: 1.6;
+  background: #f4f4f4;
 }
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 40px;
-  background: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+header {
+  position: relative;
+  text-align: center;
 }
-h1 {
-  color: #1a1a1a;
+
+.banner {
+  width: 100%;
+  height: auto;
 }
-.tagline {
-  color: #555;
-  font-style: italic;
+
+.navbar {
+  list-style: none;
+  background: #333;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  text-align: center;
 }
-a {
-  color: #0077cc;
+
+.navbar li {
+  display: inline-block;
+}
+
+.navbar a {
+  display: block;
+  padding: 14px 20px;
+  color: #fff;
   text-decoration: none;
 }
-a:hover {
-  text-decoration: underline;
+
+.navbar a:hover {
+  background: #007b5e;
+}
+
+section {
+  padding: 20px;
+  background: #fff;
+  margin: 10px auto;
+  max-width: 1000px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.about-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.profile-pic {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 5px gray;
+}
+
+.bio {
+  flex: 1;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #333;
+  color: white;
 }
