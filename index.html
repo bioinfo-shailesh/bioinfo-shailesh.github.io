@@ -5,16 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shailesh Singh | Cancer Biologist</title>
   <style>
-    body {
+    html, body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #f5f5f5;
+      scroll-behavior: smooth;
     }
     nav {
       background-color: #222;
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 10;
+      width: 100%;
+      z-index: 1000;
     }
     nav ul {
       list-style: none;
@@ -39,7 +41,7 @@
       background-image: url('banner.jpg');
       background-size: cover;
       background-position: center;
-      height: 600px;
+      height: 100vh;
       color: yellow;
       display: flex;
       align-items: flex-end;
@@ -48,13 +50,13 @@
     header h1 {
       font-size: 2rem;
       text-shadow: 2px 2px 5px #000;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
     .tab {
       display: none;
       padding: 20px;
       background: #fff;
-      margin: 10px auto;
+      margin: 60px auto 10px;
       max-width: 1000px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
@@ -71,15 +73,37 @@
       border-radius: 10px;
       box-shadow: 0 0 5px gray;
     }
+    .left-panel {
+      width: 220px;
+    }
     .bio {
       flex: 1;
+    }
+    .title-box {
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+    .cv-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #0073e6;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+    .cv-button:hover {
+      background-color: #005bb5;
     }
   </style>
   <script>
     function showTab(tabId) {
       const tabs = document.querySelectorAll('.tab');
       tabs.forEach(tab => tab.classList.remove('active-tab'));
-      document.getElementById(tabId).classList.add('active-tab');
+      const selected = document.getElementById(tabId);
+      selected.classList.add('active-tab');
+      selected.scrollIntoView({ behavior: 'smooth' });
     }
     window.onload = () => showTab('about');
   </script>
@@ -102,7 +126,17 @@
 
   <div class="tab" id="about">
     <div class="about-container">
-      <img src="profile.jpg" alt="Shailesh Singh" class="profile-pic" />
+      <div class="left-panel">
+        <img src="profile.jpg" alt="Shailesh Singh" class="profile-pic" />
+        <div class="title-box">
+          <p><strong>Dr Shailesh Singh, PhD</strong><br>
+          Former Postdoctoral Research Associate<br>
+          Department of Surgery<br>
+          Sylvester Comprehensive Cancer Center<br>
+          University of Miami Miller School of Medicine</p>
+        </div>
+        <a href="cv.pdf" download class="cv-button">Download CV</a>
+      </div>
       <div class="bio">
         <h2>About Me</h2>
         <p>I am a cancer biologist with a strong interest in deciphering the molecular and cellular mechanisms that drive cancer progression, therapy resistance, and tumor–immune interactions. My current research emphasizes racial disparities in cancer and investigates critical signaling pathways, including Notch and the PPARγ–ELF3 axis.</p>
@@ -115,8 +149,27 @@
   </div>
 
   <div class="tab" id="publications">
-    <h2>Publications</h2>
-    <p>Under construction.</p>
+    <h2>Research Articles</h2>
+    <ul>
+      <li>Shailesh Singh, Megha Das, Rumela Chakrabarti; Abstract 777: Notch signaling dependent chemoresistance in racial disparity in ER+ breast cancer. <i>Cancer Research</i> 15 March 2024; 84: 777. <a href="https://doi.org/10.1158/1538-7445.AM2024-777">Link</a></li>
+      <li>Megha Das, Samantha Henry, Shailesh Singh, Camila Dos Santos, Rumela Chakrabarti; Abstract 179: Identification of a novel crosstalk between MDSC and NKregs in immunotherapy resistant triple negative breast cancer. <i>Cancer Research</i> 15 March 2024; 84: 179. <a href="https://doi.org/10.1158/1538-7445.AM2024-179">Link</a></li>
+      <li>Singh, S., Anjali, & Singh, A.K. (2022). Impact of environmental stress on biochemical profile and fitness traits in Drosophila malerkotliana. <i>Journal of Scientific Research</i>, 66: 68-76.</li>
+      <li>Singh, S., Yadav, N., & Singh, A.K. (2019). An autosomal recessive eye colour mutant of melon fruit fly, Bactrocera cucurbitae (Coquillett). <i>Proceedings of Zoological Society</i>, 73: 251-254. <a href="https://doi.org/10.1007/s12595-019-00304-7">Link</a></li>
+      <li>Singh, S., Yadav, N., & Singh, A.K. (2019). Sexually dimorphic morphological traits in Bactrocera cucurbitae (Diptera: Tephritidae). <i>Current Life Sciences</i>, 05: 1-6. <a href="https://doi.org/10.5281/zenodo.2553615">Link</a></li>
+      <li>Singh, S. & Singh, A.K. (2018). Skewed distribution of melon fruit flies owing to colour preference. <i>Indian Journal of Scientific Research</i>, 08: 1-4.</li>
+      <li>Patel, P., Singh, S., Patel, A.K., Kumar, B., Singh, A.K. and Kumar, D. (2020). Stage specific feeding attributes and mobilization of nutrients in Mexican beetle. <i>Journal of Asia-Pacific Entomology</i>, 23: 310-314. <a href="https://doi.org/10.1016/j.aspen.2020.02.004">Link</a></li>
+      <li>Kumar, S., Singh, A.K. and Singh, S. (2018). Evidence for random association in Drosophila ananassae. <i>Journal of Molecular and Cellular Biochemistry</i>, 02: 1-6.</li>
+      <li>Kumar, S., Singh, A.K. and Singh, S. (2019). Persistence of heterozygosity in Drosophila ananassae. <i>Genomics and Genetics</i>, 12: 11-18. <a href="https://doi.org/10.14456/gag.2019.2">Link</a></li>
+    </ul>
+
+    <h2>Book Chapters</h2>
+    <ul>
+      <li>Singh, S., Bhumika, & Singh, A.K. (2020). Intra-sexual Selection. In: Encyclopedia of Animal Cognition and Behavior. <a href="https://doi.org/10.1007/978-3-319-47829-6_281-1">DOI</a></li>
+      <li>Singh, S., & Singh, A.K. (2020). Nomenclature. In: Encyclopedia of Animal Cognition and Behavior. <a href="https://doi.org/10.1007/978-3-319-47829-6_1173-1">DOI</a></li>
+      <li>Bhumika, and Singh, S. (2020). Artificial Selection. In: Encyclopedia of Animal Cognition and Behavior. <a href="https://doi.org/10.1007/978-3-319-47829-6_331-1">DOI</a></li>
+      <li>Das, A., Upadhyay, S., Singh, S., Singh, A.K. (2025). Altruism: Kin. In: Encyclopedia of Religious Psychology and Behavior. <a href="https://doi.org/10.1007/978-3-031-38971-9_682-1">DOI</a></li>
+      <li>Das, A., Upadhyay, S., Singh, S., Singh, A.K. (2025). Evolution: Costly Rituals and Neanderthal Challenge. In: Encyclopedia of Religious Psychology and Behavior. <a href="https://doi.org/10.1007/978-3-031-38971-9_1474-1">DOI</a></li>
+    </ul>
   </div>
 
   <div class="tab" id="research">
@@ -141,10 +194,6 @@
     <h2>Contact Me</h2>
     <p>Email: sshailesh165@gmail.com</p>
     <p>Email: shailesh.singh1@bhu.ac.in</p>
-    <p>Former Postdoctoral Research Associate<p>
-    <p>Department of Surgery<p>
-    <p>Sylvester Comprehensive Cancer Center<p>
-    <p>University of Miami Miller School of Medicine<p>
   </div>
 </body>
 </html>
