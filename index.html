@@ -44,13 +44,23 @@
       height: 100vh;
       color: yellow;
       display: flex;
-      align-items: flex-end;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      position: relative;
+      text-align: center;
     }
     header h1 {
       font-size: 2rem;
       text-shadow: 2px 2px 5px #000;
       margin-bottom: 20px;
+    }
+    .scroll-link {
+      margin-bottom: 30px;
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: yellow;
+      font-weight: bold;
     }
     .tab {
       display: none;
@@ -105,7 +115,9 @@
       selected.classList.add('active-tab');
       selected.scrollIntoView({ behavior: 'smooth' });
     }
-    window.onload = () => showTab('about');
+    window.onload = () => {
+      showTab('about');
+    };
   </script>
 </head>
 <body>
@@ -120,8 +132,9 @@
     </ul>
   </nav>
 
-  <header>
+  <header id="home">
     <h1>Shailesh Singh, PhD</h1>
+    <a href="#" class="scroll-link" onclick="showTab('about')">↓ Scroll to About Me</a>
   </header>
 
   <div class="tab" id="about">
@@ -154,21 +167,21 @@
       <li>Shailesh Singh, Megha Das, Rumela Chakrabarti; Abstract 777: Notch signaling dependent chemoresistance in racial disparity in ER+ breast cancer. <i>Cancer Research</i> 15 March 2024; 84: 777. <a href="https://doi.org/10.1158/1538-7445.AM2024-777">Link</a></li>
       <li>Megha Das, Samantha Henry, Shailesh Singh, Camila Dos Santos, Rumela Chakrabarti; Abstract 179: Identification of a novel crosstalk between MDSC and NKregs in immunotherapy resistant triple negative breast cancer. <i>Cancer Research</i> 15 March 2024; 84: 179. <a href="https://doi.org/10.1158/1538-7445.AM2024-179">Link</a></li>
       <li>Singh, S., Anjali, & Singh, A.K. (2022). Impact of environmental stress on biochemical profile and fitness traits in Drosophila malerkotliana. <i>Journal of Scientific Research</i>, 66: 68-76.</li>
-      <li>Singh, S., Yadav, N., & Singh, A.K. (2019). An autosomal recessive eye colour mutant of melon fruit fly, Bactrocera cucurbitae (Coquillett). <i>Proceedings of Zoological Society</i>, 73: 251-254. <a href="https://doi.org/10.1007/s12595-019-00304-7">Link</a></li>
-      <li>Singh, S., Yadav, N., & Singh, A.K. (2019). Sexually dimorphic morphological traits in Bactrocera cucurbitae (Diptera: Tephritidae). <i>Current Life Sciences</i>, 05: 1-6. <a href="https://doi.org/10.5281/zenodo.2553615">Link</a></li>
-      <li>Singh, S. & Singh, A.K. (2018). Skewed distribution of melon fruit flies owing to colour preference. <i>Indian Journal of Scientific Research</i>, 08: 1-4.</li>
-      <li>Patel, P., Singh, S., Patel, A.K., Kumar, B., Singh, A.K. and Kumar, D. (2020). Stage specific feeding attributes and mobilization of nutrients in Mexican beetle. <i>Journal of Asia-Pacific Entomology</i>, 23: 310-314. <a href="https://doi.org/10.1016/j.aspen.2020.02.004">Link</a></li>
-      <li>Kumar, S., Singh, A.K. and Singh, S. (2018). Evidence for random association in Drosophila ananassae. <i>Journal of Molecular and Cellular Biochemistry</i>, 02: 1-6.</li>
-      <li>Kumar, S., Singh, A.K. and Singh, S. (2019). Persistence of heterozygosity in Drosophila ananassae. <i>Genomics and Genetics</i>, 12: 11-18. <a href="https://doi.org/10.14456/gag.2019.2">Link</a></li>
+      <li>Singh, S., Yadav, N., & Singh, A.K. (2019). An autosomal recessive eye colour mutant of melon fruit fly, Bactrocera cucurbitae (Coquillett). <i>Proceedings of Zoological Society</i>, 73: 251-254. <a href="https://doi.org/10.1007/s12595-019-00304-7">DOI</a></li>
+      <li>Singh, S., Yadav, N., & Singh, A.K. (2019). Sexually dimorphic morphological traits in Bactrocera cucurbitae (Diptera: Tephritidae). <i>Current Life Sciences</i>, 05: 1-6. <a href="https://doi.org/10.5281/zenodo.2553615">DOI</a></li>
+      <li>Singh, S. & Singh, A.K. (2018). Skewed distribution of melon fruit flies, Bactrocera cucurbitae (Coquillett) owing to colour preference. <i>Indian Journal of Scientific Research</i>, 08: 1-4.</li>
+      <li>Patel, P., Singh, S., Patel, A.K., Kumar, B., Singh, A.K., and Kumar, D. (2020). Stage specific feeding attributes and mobilization of nutrients in Mexican beetle, Zygogramma bicolorata Pallister on Parthenium hysterophorus L. <i>Journal of Asia-Pacific Entomology</i>, 23: 310-314. <a href="https://doi.org/10.1016/j.aspen.2020.02.004">Link</a></li>
+      <li>Kumar, S., Singh, A.K., and Singh, S. (2018). Evidence for random association between enzyme loci in natural populations and their mass culture stocks of Drosophila ananassae. <i>Journal of Molecular and Cellular Biochemistry</i>, 02: 1-6.</li>
+      <li>Kumar, S., Singh, A.K., and Singh, S. (2019). Persistence of heterozygosity owing to balancing selection at allozyme loci in laboratory populations of Drosophila ananassae. <i>Genomics and Genetics</i>, 12: 11-18. <a href="https://doi.org/10.14456/gag.2019.2">Link</a></li>
     </ul>
 
     <h2>Book Chapters</h2>
     <ul>
-      <li>Singh, S., Bhumika, & Singh, A.K. (2020). Intra-sexual Selection. In: Encyclopedia of Animal Cognition and Behavior. <a href="https://doi.org/10.1007/978-3-319-47829-6_281-1">DOI</a></li>
-      <li>Singh, S., & Singh, A.K. (2020). Nomenclature. In: Encyclopedia of Animal Cognition and Behavior. <a href="https://doi.org/10.1007/978-3-319-47829-6_1173-1">DOI</a></li>
-      <li>Bhumika, and Singh, S. (2020). Artificial Selection. In: Encyclopedia of Animal Cognition and Behavior. <a href="https://doi.org/10.1007/978-3-319-47829-6_331-1">DOI</a></li>
-      <li>Das, A., Upadhyay, S., Singh, S., Singh, A.K. (2025). Altruism: Kin. In: Encyclopedia of Religious Psychology and Behavior. <a href="https://doi.org/10.1007/978-3-031-38971-9_682-1">DOI</a></li>
-      <li>Das, A., Upadhyay, S., Singh, S., Singh, A.K. (2025). Evolution: Costly Rituals and Neanderthal Challenge. In: Encyclopedia of Religious Psychology and Behavior. <a href="https://doi.org/10.1007/978-3-031-38971-9_1474-1">DOI</a></li>
+      <li>Singh, S., Bhumika, & Singh, A.K. (2020). Intra-sexual Selection. In Vonk, J., & Shackelford, T. (Eds.), <i>Encyclopedia of Animal Cognition and Behavior</i>. Springer. <a href="https://doi.org/10.1007/978-3-319-47829-6_281-1">DOI</a></li>
+      <li>Singh, S., & Singh, A.K. (2020). Nomenclature. In Vonk, J., & Shackelford, T. (Eds.), <i>Encyclopedia of Animal Cognition and Behavior</i>. Springer. <a href="https://doi.org/10.1007/978-3-319-47829-6_1173-1">DOI</a></li>
+      <li>Bhumika and Singh, S. (2020). Artificial Selection. In: Vonk, J. and Shackelford, T. (Eds.), <i>Encyclopedia of Animal Cognition and Behavior</i>. Springer, Cham. <a href="https://doi.org/10.1007/978-3-319-47829-6_331-1">DOI</a></li>
+      <li>Das, A., Upadhyay, S., Singh, S., Singh, A.K. (2025). Altruism: Kin. In: Shackelford, T. (Ed.), <i>Encyclopedia of Religious Psychology and Behavior</i>. Springer, Cham. <a href="https://doi.org/10.1007/978-3-031-38971-9_682-1">DOI</a></li>
+      <li>Das, A., Upadhyay, S., Singh, S., Singh, A.K. (2025). Evolution: Costly Rituals and Neanderthal Challenge. In: Shackelford, T. (Ed.), <i>Encyclopedia of Religious Psychology and Behavior</i>. Springer, Cham. <a href="https://doi.org/10.1007/978-3-031-38971-9_1474-1">DOI</a></li>
     </ul>
   </div>
 
