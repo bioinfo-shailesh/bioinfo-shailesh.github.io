@@ -102,15 +102,26 @@
     }
   </style>
   <script>
-    function showTab(tabId) {
-      const tabs = document.querySelectorAll('.tab');
-      tabs.forEach(tab => tab.classList.remove('active-tab'));
-      const selected = document.getElementById(tabId);
-      selected.classList.add('active-tab');
-      selected.scrollIntoView({ behavior: 'smooth' });
+  function showTab(tabId) {
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => tab.classList.remove('active-tab'));
+
+    const selected = document.getElementById(tabId);
+    selected.classList.add('active-tab');
+    selected.scrollIntoView({ behavior: 'smooth' });
+
+    const header = document.querySelector("header");
+
+    // Change banner only for About Me tab
+    if (tabId === 'about') {
+      header.style.backgroundImage = "url('banner-about.jpg')";
+    } else {
+      header.style.backgroundImage = "url('banner.jpg')";
     }
-    window.onload = () => showTab('about');
-  </script>
+  }
+
+  window.onload = () => showTab('about');
+</script>
 </head>
 <body>
   <nav>
