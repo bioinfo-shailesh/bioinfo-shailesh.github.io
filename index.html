@@ -111,8 +111,25 @@
       selected.scrollIntoView({ behavior: 'smooth' });
     }
     window.onload = () => {
-      showTab('about');
-    };
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.style.display = 'none';
+  });
+  const defaultTab = document.getElementById('about');
+  defaultTab.classList.add('active-tab');
+  defaultTab.style.display = 'block';
+};
+
+function showTab(tabId) {
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(tab => {
+    tab.classList.remove('active-tab');
+    tab.style.display = 'none';
+  });
+  const selected = document.getElementById(tabId);
+  selected.classList.add('active-tab');
+  selected.style.display = 'block';
+  selected.scrollIntoView({ behavior: 'smooth' });
+}
   </script>
 </head>
 <body>
