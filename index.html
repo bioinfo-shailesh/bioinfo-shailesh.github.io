@@ -1,4 +1,4 @@
-<!-- Updated Final Version with Working Tabs and Banner Switching -->
+<!-- Updated on July 16 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,189 +7,192 @@
   <title>Shailesh Singh | Cancer Biologist</title>
   <link rel="icon" type="image/png" href="favicon.png" />
   <style>
-    html, body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      scroll-behavior: smooth;
-    }
+  html, body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    scroll-behavior: smooth;
+  }
 
-    .nav-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      background-color: #222;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+  .nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  max-width: 100%;
+  background-color: #222;
+}
 
-    .logo img {
-      height: 40px;
-      padding: 10px 0;
-    }
+.logo img {
+  height: 40px;
+  padding: 10px 0;
+}
 
-    .nav-tabs {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
+.nav-tabs {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-    .nav-tabs li {
-      margin-left: 10px;
-    }
+.nav-tabs li {
+  margin-left: 10px;
+}
 
-    .nav-tabs a {
-      display: block;
-      padding: 14px 16px;
-      text-decoration: none;
-      color: white;
-    }
+.nav-tabs a {
+  display: block;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: white;
+}
 
-    .nav-tabs a:hover {
-      background-color: #575757;
-    }
+.nav-tabs a:hover {
+  background-color: #575757;
+}
 
-    header {
-      background-image: url('banner-about.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      color: yellow;
-      display: flex;
+  header {
+    background-image: url('banner.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: yellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    text-shadow: 2px 2px 5px #000;
+    margin-bottom: 40px;
+  }
+
+  .tab {
+    display: none;
+    padding: 40px 80px;
+    background: #fff;
+    margin-top: 60px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .active-tab {
+    display: block;
+  }
+
+  .about-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.left-panel {
+  flex-shrink: 0;
+  max-width: 300px;
+}
+
+.profile-pic {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 5px gray;
+}
+
+.bio {
+  flex: 1;
+  min-width: 300px;
+  max-width: 800px;
+  text-align: justify;
+}
+
+  .title-box {
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+
+  .cv-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #0073e6;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+  }
+
+  .cv-button:hover {
+    background-color: #005bb5;
+  }
+
+  @media (max-width: 768px) {
+    .about-container {
       flex-direction: column;
       align-items: center;
-      justify-content: flex-end;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      text-shadow: 2px 2px 5px #000;
-      margin-bottom: 40px;
-    }
-
-    .tab {
-      display: none;
-      padding: 40px 80px;
-      background: #fff;
-      margin-top: 60px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .active-tab {
-      display: block;
-    }
-
-    .about-container {
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      gap: 40px;
-      flex-wrap: wrap;
-      max-width: 1200px;
-      margin: 0 auto;
     }
 
     .left-panel {
-      flex-shrink: 0;
-      max-width: 300px;
-    }
-
-    .profile-pic {
       width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 5px gray;
+      text-align: center;
     }
 
     .bio {
-      flex: 1;
-      min-width: 300px;
-      max-width: 800px;
-      text-align: justify;
+      width: 100%;
     }
 
-    .title-box {
-      font-size: 0.9rem;
-      margin-top: 10px;
+    .tab {
+      padding: 20px;
     }
+  }
+</style>
+    <script>
+  function showTab(tabId) {
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => tab.classList.remove('active-tab'));
 
-    .cv-button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background-color: #0073e6;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 0.9rem;
+    const selected = document.getElementById(tabId);
+    selected.classList.add('active-tab');
+    selected.scrollIntoView({ behavior: 'smooth' });
+
+    const header = document.querySelector("header");
+
+    // Change banner only for About Me tab
+    if (tabId === 'about') {
+      header.style.backgroundImage = "url('banner-about.jpg')";
+    } else {
+      header.style.backgroundImage = "url('banner.jpg')";
     }
+  }
 
-    .cv-button:hover {
-      background-color: #005bb5;
-    }
-
-    @media (max-width: 768px) {
-      .about-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .left-panel {
-        width: 100%;
-        text-align: center;
-      }
-
-      .bio {
-        width: 100%;
-      }
-
-      .tab {
-        padding: 20px;
-      }
-    }
-  </style>
-  <script>
-    function showTab(tabId) {
-      const tabs = document.querySelectorAll('.tab');
-      tabs.forEach(tab => tab.classList.remove('active-tab'));
-
-      const selected = document.getElementById(tabId);
-      selected.classList.add('active-tab');
-
-      const header = document.querySelector("header");
-      header.style.backgroundImage = tabId === 'about' ? "url('banner-about.jpg')" : "url('banner.jpg')";
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    window.onload = () => showTab('about');
-  </script>
+  window.onload = () => showTab('about');
+</script>
 </head>
 <body>
   <nav>
-    <div class="nav-bar">
-      <div class="logo">
-        <img src="ss-monogram.png" alt="SS Logo" />
-      </div>
-      <ul class="nav-tabs">
-        <li><a href="#" onclick="showTab('about')">About Me</a></li>
-        <li><a href="#" onclick="showTab('publications')">Publications</a></li>
-        <li><a href="#" onclick="showTab('research')">Research Activity</a></li>
-        <li><a href="#" onclick="showTab('services')">Bioinformatics & Statistical Consulting</a></li>
-        <li><a href="#" onclick="showTab('youtube')">YouTube</a></li>
-        <li><a href="#" onclick="showTab('contact')">Contact Me</a></li>
-      </ul>
+  <div class="nav-bar">
+    <div class="logo">
+      <img src="ss-monogram.png" alt="SS Logo" />
     </div>
-  </nav>
+    <ul class="nav-tabs">
+      <li><a href="#" onclick="showTab('about')">About Me</a></li>
+      <li><a href="#" onclick="showTab('publications')">Publications</a></li>
+      <li><a href="#" onclick="showTab('research')">Research Activity</a></li>
+      <li><a href="#" onclick="showTab('services')">Bioinformatics & Statistical Consulting</a></li>
+      <li><a href="#" onclick="showTab('youtube')">YouTube</a></li>
+      <li><a href="#" onclick="showTab('contact')">Contact Me</a></li>
+    </ul>
+  </div>
+</nav>
 
   <header>
     <h1>Shailesh Singh, PhD</h1>
   </header>
 
-  <!-- TAB CONTENTS -->
   <div class="tab" id="about">
     <div class="about-container">
       <div class="left-panel">
@@ -204,6 +207,7 @@
         <a href="cv.pdf" download class="cv-button" target="_blank">Download CV</a>
       </div>
       <div class="bio">
+        <h2>About Me</h2>
         <p>I am a cancer biologist with a strong interest in deciphering the molecular and cellular mechanisms that drive cancer progression, therapy resistance, and tumor–immune interactions. My current research emphasizes racial disparities in cancer and investigates critical signaling pathways, including Notch and the PPARγ–ELF3 axis. I earned my PhD in Zoology from the prestigious Banaras Hindu University (BHU), India, where I developed a solid foundation in computational biology and insect ecology. During my doctoral research, I discovered a novel autosomal recessive eye color mutant—termed the golden brown eye mutant—in Zeugodacus cucurbitae, adding to the understanding of genetic regulation in insect models. Following my PhD, I completed a postdoctoral fellowship at the University of Miami, Sylvester Comprehensive Cancer Center, where I expanded my expertise in cancer biology, immuno-oncology, and bioinformatics. My technical competencies include single-cell and bulk RNA sequencing and analysis, flow cytometry, mammalian cell culture, in vivo mouse models, and patient-derived tumor models. I am proficient in computational workflows, differential gene expression analysis, and trajectory inference. I actively contribute to collaborative projects involving data analysis, figure generation, and manuscript development.</p>
         <p>Outside the lab, I am passionate about science communication, staying current with advances in cancer research and immunology, and mentoring early-career researchers in both experimental and computational aspects of biomedical science.</p>
         <h2>Education</h2>
@@ -255,7 +259,7 @@
     <p>Under construction.</p>
   </div>
 
-  div class="tab" id="services">
+  <div class="tab" id="services">
   <h2>Bioinformatics & Statistical Consulting</h2>
   <p>
     I am open to academic collaborations and offer specialized bioinformatics and statistical consulting services, with a focus on transcriptomics and high-throughput sequencing data. My work is aimed at supporting robust and reproducible research through expert guidance in data analysis, experimental design, and interpretation.
@@ -298,7 +302,7 @@
 </div>
 
   <div class="tab" id="youtube">
-    <h2>YouTube</h2>
+    <h2>YouTube Channel</h2>
     <p>Coming soon.</p>
   </div>
 
