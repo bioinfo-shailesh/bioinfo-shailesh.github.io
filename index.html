@@ -7,101 +7,147 @@
   <title>Shailesh Singh | Cancer Biologist</title>
   <link rel="icon" type="image/png" href="favicon.png" />
   <style>
-    html, body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      scroll-behavior: smooth;
-    }
-    nav {
-      background-color: #222;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-    }
-    nav li {
-      margin: 0;
-    }
-    nav a {
-      display: block;
-      padding: 14px 20px;
-      text-decoration: none;
-      color: white;
-    }
-    nav a:hover {
-      background-color: #575757;
-    }
-    header {
-      background-image: url('banner.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      color: yellow;
-      display: flex;
+  html, body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    scroll-behavior: smooth;
+  }
+
+  nav {
+    background-color: #222;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+  }
+
+  nav img {
+    height: 40px;
+    padding: 10px 20px;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+  }
+
+  nav li {
+    margin: 0;
+  }
+
+  nav a {
+    display: block;
+    padding: 14px 20px;
+    text-decoration: none;
+    color: white;
+  }
+
+  nav a:hover {
+    background-color: #575757;
+  }
+
+  header {
+    background-image: url('banner.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: yellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    text-shadow: 2px 2px 5px #000;
+    margin-bottom: 40px;
+  }
+
+  .tab {
+    display: none;
+    padding: 40px 80px;
+    background: #fff;
+    margin-top: 60px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .active-tab {
+    display: block;
+  }
+
+  .about-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .profile-pic {
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px gray;
+  }
+
+  .left-panel {
+    width: 220px;
+    flex-shrink: 0;
+  }
+
+  .bio {
+    flex: 1;
+    text-align: justify;
+  }
+
+  .title-box {
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+
+  .cv-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #0073e6;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+  }
+
+  .cv-button:hover {
+    background-color: #005bb5;
+  }
+
+  @media (max-width: 768px) {
+    .about-container {
       flex-direction: column;
       align-items: center;
-      justify-content: flex-end;
+    }
+
+    .left-panel {
+      width: 100%;
       text-align: center;
     }
-    header h1 {
-      font-size: 2rem;
-      text-shadow: 2px 2px 5px #000;
-      margin-bottom: 40px;
-    }
-    .tab {
-      display: none;
-      padding: 20px;
-      background: #fff;
-      margin: 60px auto 10px;
-      max-width: 1000px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .active-tab {
-      display: block;
-    }
-    .about-container {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-    }
-    .profile-pic {
-      width: 200px;
-      border-radius: 10px;
-      box-shadow: 0 0 5px gray;
-    }
-    .left-panel {
-      width: 220px;
-    }
+
     .bio {
-      flex: 1;
-      text-align: justify;
+      width: 100%;
     }
-    .title-box {
-      font-size: 0.9rem;
-      margin-top: 10px;
+
+    .tab {
+      padding: 20px;
     }
-    .cv-button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background-color: #0073e6;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 0.9rem;
-    }
-    .cv-button:hover {
-      background-color: #005bb5;
-    }
-  </style>
+  }
+</style>
   <script>
   function showTab(tabId) {
     const tabs = document.querySelectorAll('.tab');
