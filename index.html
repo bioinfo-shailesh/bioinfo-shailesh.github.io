@@ -1,3 +1,4 @@
+<!-- Updated on July 16 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +39,7 @@
       background-color: #575757;
     }
     header {
-      background-image: url('banner-about.jpg');
+      background-image: url('banner.jpg');
       background-size: cover;
       background-position: center;
       height: 100vh;
@@ -99,34 +100,28 @@
     .cv-button:hover {
       background-color: #005bb5;
     }
-    .service-section h3 {
-      margin-top: 20px;
-      color: #0073e6;
-    }
-    .service-section ul {
-      padding-left: 20px;
-    }
   </style>
   <script>
-    function showTab(tabId) {
-      const tabs = document.querySelectorAll('.tab');
-      tabs.forEach(tab => tab.classList.remove('active-tab'));
+  function showTab(tabId) {
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => tab.classList.remove('active-tab'));
 
-      const selected = document.getElementById(tabId);
-      selected.classList.add('active-tab');
+    const selected = document.getElementById(tabId);
+    selected.classList.add('active-tab');
+    selected.scrollIntoView({ behavior: 'smooth' });
 
-      const header = document.querySelector("header");
-      if (tabId === 'about') {
-        header.style.height = '100vh';
-        header.style.backgroundImage = "url('banner-about.jpg')";
-      } else {
-        header.style.height = '40vh';
-        header.style.backgroundImage = "url('banner.jpg')";
-      }
+    const header = document.querySelector("header");
+
+    // Change banner only for About Me tab
+    if (tabId === 'about') {
+      header.style.backgroundImage = "url('banner-about.jpg')";
+    } else {
+      header.style.backgroundImage = "url('banner.jpg')";
     }
+  }
 
-    window.onload = () => showTab('about');
-  </script>
+  window.onload = () => showTab('about');
+</script>
 </head>
 <body>
   <nav>
@@ -134,7 +129,7 @@
       <li><a href="#" onclick="showTab('about')">About Me</a></li>
       <li><a href="#" onclick="showTab('publications')">Publications</a></li>
       <li><a href="#" onclick="showTab('research')">Research Activity</a></li>
-      <li><a href="#" onclick="showTab('services')">Bioinformatics & Statistical Consulting</a></li>
+      <li><a href="#" onclick="showTab('services')">Services</a></li>
       <li><a href="#" onclick="showTab('youtube')">YouTube</a></li>
       <li><a href="#" onclick="showTab('contact')">Contact Me</a></li>
     </ul>
@@ -155,19 +150,38 @@
           Sylvester Comprehensive Cancer Center<br>
           University of Miami Miller School of Medicine</p>
         </div>
-        <a href="https://drive.google.com/your-cv-link" class="cv-button" target="_blank">View CV</a>
+        <a href="cv.pdf" download class="cv-button" target="_blank">Download CV</a>
       </div>
       <div class="bio">
         <h2>About Me</h2>
-        <p>I am a cancer biologist with a strong interest in deciphering the molecular and cellular mechanisms that drive cancer progression, therapy resistance, and tumor–immune interactions. My current research emphasizes racial disparities in cancer and investigates critical signaling pathways, including Notch and the PPARγ–ELF3 axis. I earned my PhD in Zoology from the prestigious Banaras Hindu University (BHU), India, where I developed a solid foundation in computational biology and insect ecology...</p>
-        <p>Outside the lab, I am passionate about science communication, staying current with advances in cancer research and immunology, and mentoring early-career researchers.</p>
+        <p>I am a cancer biologist with a strong interest in deciphering the molecular and cellular mechanisms that drive cancer progression, therapy resistance, and tumor–immune interactions. My current research emphasizes racial disparities in cancer and investigates critical signaling pathways, including Notch and the PPARγ–ELF3 axis. I earned my PhD in Zoology from the prestigious Banaras Hindu University (BHU), India, where I developed a solid foundation in computational biology and insect ecology. During my doctoral research, I discovered a novel autosomal recessive eye color mutant—termed the golden brown eye mutant—in Zeugodacus cucurbitae, adding to the understanding of genetic regulation in insect models. Following my PhD, I completed a postdoctoral fellowship at the University of Miami, Sylvester Comprehensive Cancer Center, where I expanded my expertise in cancer biology, immuno-oncology, and bioinformatics. My technical competencies include single-cell and bulk RNA sequencing and analysis, flow cytometry, mammalian cell culture, in vivo mouse models, and patient-derived tumor models. I am proficient in computational workflows, differential gene expression analysis, and trajectory inference. I actively contribute to collaborative projects involving data analysis, figure generation, and manuscript development.</p>
+        <p>Outside the lab, I am passionate about science communication, staying current with advances in cancer research and immunology, and mentoring early-career researchers in both experimental and computational aspects of biomedical science.</p>
       </div>
     </div>
   </div>
 
   <div class="tab" id="publications">
-    <h2>Publications</h2>
-    <!-- Add your publication list here -->
+    <h2>Research Articles</h2>
+    <ul>
+      <li>Shailesh Singh, Megha Das, Rumela Chakrabarti; Abstract 777: Notch signaling dependent chemoresistance in racial disparity in ER+ breast cancer. <i>Cancer Research</i> 15 March 2024; 84: 777. <a href="https://doi.org/10.1158/1538-7445.AM2024-777" target="_blank">Link</a></li>
+      <li>Megha Das, Samantha Henry, Shailesh Singh, Camila Dos Santos, Rumela Chakrabarti; Abstract 179: Identification of a novel crosstalk between MDSC and NKregs in immunotherapy resistant triple negative breast cancer. <i>Cancer Research</i> 15 March 2024; 84: 179. <a href="https://doi.org/10.1158/1538-7445.AM2024-179" target="_blank">Link</a></li>
+      <li>Singh, S., Anjali, & Singh, A.K. (2022). Impact of environmental stress on biochemical profile and fitness traits in Drosophila malerkotliana. <i>Journal of Scientific Research</i>, 66: 68-76.</li>
+      <li>Singh, S., Yadav, N., & Singh, A.K. (2019). An autosomal recessive eye colour mutant of melon fruit fly, Bactrocera cucurbitae (Coquillett). <i>Proceedings of Zoological Society</i>, 73: 251-254. <a href="https://doi.org/10.1007/s12595-019-00304-7" target="_blank">DOI</a></li>
+      <li>Singh, S., Yadav, N., & Singh, A.K. (2019). Sexually dimorphic morphological traits in Bactrocera cucurbitae. <i>Current Life Sciences</i>, 05: 1-6. <a href="https://doi.org/10.5281/zenodo.2553615" target="_blank">DOI</a></li>
+      <li>Singh, S. & Singh, A.K. (2018). Skewed distribution of melon fruit flies owing to colour preference. <i>Indian Journal of Scientific Research</i>, 08: 1-4.</li>
+      <li>Patel, P., Singh, S., et al. (2020). Feeding attributes in Mexican beetle. <i>Journal of Asia-Pacific Entomology</i>, 23: 310-314. <a href="https://doi.org/10.1016/j.aspen.2020.02.004" target="_blank">Link</a></li>
+      <li>Kumar, S., Singh, A.K., and Singh, S. (2018). Random association in Drosophila ananassae. <i>J. Mol. Cell. Biochem.</i>, 02: 1-6.</li>
+      <li>Kumar, S., Singh, A.K., and Singh, S. (2019). Persistence of heterozygosity in Drosophila. <i>Genomics and Genetics</i>, 12: 11-18. <a href="https://doi.org/10.14456/gag.2019.2" target="_blank">Link</a></li>
+    </ul>
+
+    <h2>Book Chapters</h2>
+    <ul>
+      <li>Singh, S., Bhumika, & Singh, A.K. (2020). Intra-sexual Selection. <i>Encyclopedia of Animal Cognition and Behavior</i>. <a href="https://doi.org/10.1007/978-3-319-47829-6_281-1" target="_blank">DOI</a></li>
+      <li>Singh, S., & Singh, A.K. (2020). Nomenclature. <i>Encyclopedia of Animal Cognition and Behavior</i>. <a href="https://doi.org/10.1007/978-3-319-47829-6_1173-1" target="_blank">DOI</a></li>
+      <li>Bhumika & Singh, S. (2020). Artificial Selection. <i>Encyclopedia of Animal Cognition and Behavior</i>. <a href="https://doi.org/10.1007/978-3-319-47829-6_331-1" target="_blank">DOI</a></li>
+      <li>Das, A., Upadhyay, S., Singh, S., Singh, A.K. (2025). Altruism: Kin. <i>Encyclopedia of Religious Psychology and Behavior</i>. <a href="https://doi.org/10.1007/978-3-031-38971-9_682-1" target="_blank">DOI</a></li>
+      <li>Das, A., Upadhyay, S., Singh, S., Singh, A.K. (2025). Evolution: Costly Rituals. <i>Encyclopedia of Religious Psychology and Behavior</i>. <a href="https://doi.org/10.1007/978-3-031-38971-9_1474-1" target="_blank">DOI</a></li>
+    </ul>
   </div>
 
   <div class="tab" id="research">
@@ -176,35 +190,11 @@
   </div>
 
   <div class="tab" id="services">
-    <h2>Bioinformatics & Statistical Consulting</h2>
-    <p>I am open to academic collaborations and offer specialized bioinformatics and statistical analysis services, with expertise in transcriptomics and high-throughput sequencing data. In addition, I provide guidance on research planning, experimental design, and data interpretation to support robust and impactful scientific studies.</p>
-
-    <div class="service-section">
-      <h3>🧬 Single-Cell & Bulk RNA-Seq Analysis</h3>
-      <ul>
-        <li>Data preprocessing: quality control, alignment, and normalization</li>
-        <li>Dimensionality reduction, clustering, and trajectory inference (for scRNA-seq)</li>
-        <li>Differential gene expression and gene set enrichment analysis</li>
-        <li>Cell type annotation and signature mapping</li>
-        <li>Batch effect correction and dataset integration</li>
-        <li>Pseudotime analysis and cell–cell communication studies</li>
-        <li>Customized visualizations for manuscripts, presentations, or grant proposals</li>
-      </ul>
-    </div>
-
-    <div class="service-section">
-      <h3>📊 Statistical Analysis & Research Support</h3>
-      <ul>
-        <li>Support with experimental design and power calculation</li>
-        <li>Parametric and non-parametric testing (t-tests, ANOVA, regression, etc.)</li>
-        <li>Survival analysis, model fitting, and multivariate analysis</li>
-        <li>Correlation and association studies</li>
-        <li>Generation of high-quality, publication-ready plots and data summaries</li>
-      </ul>
-    </div>
-
-    <p>With a strong background in cancer biology and transcriptomics, I approach each project with care and analytical rigor. I bring research-driven expertise, attention to detail, and a commitment to delivering results that are clear, reproducible, and tailored to your scientific goals.</p>
-    <p><strong>📩 If you're interested in collaborating or discussing a potential project, feel free to get in touch.</strong></p>
+    <h2>Services</h2>
+    <ul>
+      <li>Single-cell RNA-seq analysis</li>
+      <li>Bulk RNA-seq analysis</li>
+    </ul>
   </div>
 
   <div class="tab" id="youtube">
