@@ -1,4 +1,3 @@
-<!-- Updated on July 16 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +38,7 @@
       background-color: #575757;
     }
     header {
-      background-image: url('banner.jpg');
+      background-image: url('banner-about.jpg');
       background-size: cover;
       background-position: center;
       height: 100vh;
@@ -100,26 +99,34 @@
     .cv-button:hover {
       background-color: #005bb5;
     }
+    .service-section h3 {
+      margin-top: 20px;
+      color: #0073e6;
+    }
+    .service-section ul {
+      padding-left: 20px;
+    }
   </style>
   <script>
-  function showTab(tabId) {
-    const tabs = document.querySelectorAll('.tab');
-    tabs.forEach(tab => tab.classList.remove('active-tab'));
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => tab.classList.remove('active-tab'));
 
-    const selected = document.getElementById(tabId);
-    selected.classList.add('active-tab');
-    selected.scrollIntoView({ behavior: 'smooth' });
+      const selected = document.getElementById(tabId);
+      selected.classList.add('active-tab');
 
-    const header = document.querySelector("header");
-
-    if (tabId === 'about') {
-      header.style.backgroundImage = "url('banner-about.jpg')";
-    } else {
-      header.style.backgroundImage = "url('banner.jpg')";
+      const header = document.querySelector("header");
+      if (tabId === 'about') {
+        header.style.height = '100vh';
+        header.style.backgroundImage = "url('banner-about.jpg')";
+      } else {
+        header.style.height = '40vh';
+        header.style.backgroundImage = "url('banner.jpg')";
+      }
     }
-  }
-  window.onload = () => showTab('about');
-</script>
+
+    window.onload = () => showTab('about');
+  </script>
 </head>
 <body>
   <nav>
@@ -138,11 +145,29 @@
   </header>
 
   <div class="tab" id="about">
-    <!-- About section remains unchanged -->
+    <div class="about-container">
+      <div class="left-panel">
+        <img src="profile.jpg" alt="Shailesh Singh" class="profile-pic" />
+        <div class="title-box">
+          <p><strong>Dr Shailesh Singh, PhD</strong><br>
+          Former Postdoctoral Research Associate<br>
+          Department of Surgery<br>
+          Sylvester Comprehensive Cancer Center<br>
+          University of Miami Miller School of Medicine</p>
+        </div>
+        <a href="https://drive.google.com/your-cv-link" class="cv-button" target="_blank">View CV</a>
+      </div>
+      <div class="bio">
+        <h2>About Me</h2>
+        <p>I am a cancer biologist with a strong interest in deciphering the molecular and cellular mechanisms that drive cancer progression, therapy resistance, and tumor–immune interactions. My current research emphasizes racial disparities in cancer and investigates critical signaling pathways, including Notch and the PPARγ–ELF3 axis. I earned my PhD in Zoology from the prestigious Banaras Hindu University (BHU), India, where I developed a solid foundation in computational biology and insect ecology...</p>
+        <p>Outside the lab, I am passionate about science communication, staying current with advances in cancer research and immunology, and mentoring early-career researchers.</p>
+      </div>
+    </div>
   </div>
 
   <div class="tab" id="publications">
-    <!-- Publications section remains unchanged -->
+    <h2>Publications</h2>
+    <!-- Add your publication list here -->
   </div>
 
   <div class="tab" id="research">
@@ -151,46 +176,36 @@
   </div>
 
   <div class="tab" id="services">
-  <h2>Bioinformatics & Statistical Consulting</h2>
-  <p>
-    I am open to academic collaborations and offer specialized bioinformatics and statistical consulting services, with a focus on transcriptomics and high-throughput sequencing data. My work is aimed at supporting robust and reproducible research through expert guidance in data analysis, experimental design, and interpretation.
-  </p>
+    <h2>Bioinformatics & Statistical Consulting</h2>
+    <p>I am open to academic collaborations and offer specialized bioinformatics and statistical analysis services, with expertise in transcriptomics and high-throughput sequencing data. In addition, I provide guidance on research planning, experimental design, and data interpretation to support robust and impactful scientific studies.</p>
 
-  <h3>🧬 Single-Cell & Bulk RNA-Seq Analysis</h3>
-  <p>
-    I provide comprehensive analysis pipelines for both single-cell RNA sequencing (scRNA-seq) and bulk RNA-seq datasets to help researchers extract meaningful biological insights from complex transcriptomic data.
-  </p>
-  <ul>
-    <li>Data preprocessing: quality control, alignment, and normalization</li>
-    <li>Dimensionality reduction, clustering, and trajectory inference (for scRNA-seq)</li>
-    <li>Differential gene expression and gene set enrichment analysis</li>
-    <li>Cell type annotation and signature mapping</li>
-    <li>Batch effect correction and dataset integration</li>
-    <li>Pseudotime analysis and cell–cell communication studies</li>
-    <li>Customized visualizations for manuscripts, presentations, and grant proposals</li>
-  </ul>
+    <div class="service-section">
+      <h3>🧬 Single-Cell & Bulk RNA-Seq Analysis</h3>
+      <ul>
+        <li>Data preprocessing: quality control, alignment, and normalization</li>
+        <li>Dimensionality reduction, clustering, and trajectory inference (for scRNA-seq)</li>
+        <li>Differential gene expression and gene set enrichment analysis</li>
+        <li>Cell type annotation and signature mapping</li>
+        <li>Batch effect correction and dataset integration</li>
+        <li>Pseudotime analysis and cell–cell communication studies</li>
+        <li>Customized visualizations for manuscripts, presentations, or grant proposals</li>
+      </ul>
+    </div>
 
-  <h3>📊 Statistical Analysis & Research Support</h3>
-  <p>
-    I also offer tailored statistical consulting services for basic, preclinical, and clinical research projects.
-  </p>
-  <ul>
-    <li>Support with experimental design and statistical power calculation</li>
-    <li>Parametric and non-parametric hypothesis testing (t-tests, ANOVA, regression, etc.)</li>
-    <li>Survival analysis, model fitting, and multivariate analysis</li>
-    <li>Correlation and association studies</li>
-    <li>Publication-ready plots and data summaries</li>
-  </ul>
+    <div class="service-section">
+      <h3>📊 Statistical Analysis & Research Support</h3>
+      <ul>
+        <li>Support with experimental design and power calculation</li>
+        <li>Parametric and non-parametric testing (t-tests, ANOVA, regression, etc.)</li>
+        <li>Survival analysis, model fitting, and multivariate analysis</li>
+        <li>Correlation and association studies</li>
+        <li>Generation of high-quality, publication-ready plots and data summaries</li>
+      </ul>
+    </div>
 
-  <p>
-    With a strong background in cancer biology and transcriptomics, I approach each project with scientific rigor and precision. My hands-on experience includes working with human single-cell and bulk RNA-seq datasets in the context of cancer biology, immune signaling, and therapeutic response.
-  </p>
-  <p>
-    While I am in the early stages of offering professional services, I am committed to delivering high-quality, transparent, and tailored results aligned with your research goals.
-  </p>
-
-  <p><strong>📩 Interested in collaborating or starting a project?</strong> Please feel free to <a href="#contact" onclick="showTab('contact')">get in touch</a>.</p>
-</div>
+    <p>With a strong background in cancer biology and transcriptomics, I approach each project with care and analytical rigor. I bring research-driven expertise, attention to detail, and a commitment to delivering results that are clear, reproducible, and tailored to your scientific goals.</p>
+    <p><strong>📩 If you're interested in collaborating or discussing a potential project, feel free to get in touch.</strong></p>
+  </div>
 
   <div class="tab" id="youtube">
     <h2>YouTube Channel</h2>
