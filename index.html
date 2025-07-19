@@ -1,3 +1,4 @@
+<!-- Updated Final Version with Working Tabs and Banner Switching -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,23 +7,10 @@
   <title>Shailesh Singh | Cancer Biologist</title>
   <link rel="icon" type="image/png" href="favicon.png" />
   <style>
-    :root {
-      --bg-color: #f5f5f5;
-      --text-color: #000;
-      --link-color: #0073e6;
-    }
-
-    body.dark-mode {
-      --bg-color: #1c1c1c;
-      --text-color: #eee;
-      --link-color: #66b2ff;
-    }
-
     html, body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
       scroll-behavior: smooth;
     }
 
@@ -32,6 +20,9 @@
       justify-content: space-between;
       padding: 0 20px;
       background-color: #222;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .logo img {
@@ -61,14 +52,8 @@
       background-color: #575757;
     }
 
-    .toggle-theme {
-      color: white;
-      cursor: pointer;
-      margin-left: 20px;
-    }
-
     header {
-      background-image: url('banner.jpg');
+      background-image: url('banner-about.jpg');
       background-size: cover;
       background-position: center;
       height: 100vh;
@@ -89,7 +74,8 @@
     .tab {
       display: none;
       padding: 40px 80px;
-      background: var(--bg-color);
+      background: #fff;
+      margin-top: 60px;
       width: 100%;
       box-sizing: border-box;
     }
@@ -101,6 +87,7 @@
     .about-container {
       display: flex;
       align-items: flex-start;
+      justify-content: flex-start;
       gap: 40px;
       flex-wrap: wrap;
       max-width: 1200px;
@@ -108,6 +95,7 @@
     }
 
     .left-panel {
+      flex-shrink: 0;
       max-width: 300px;
     }
 
@@ -144,59 +132,21 @@
       background-color: #005bb5;
     }
 
-    .tab ul {
-      margin-left: 20px;
-      margin-bottom: 20px;
-    }
-
-    .tab li {
-      margin-bottom: 15px;
-      line-height: 1.6;
-    }
-
-    .publications-container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .collapsible {
-      cursor: pointer;
-      background-color: #0073e6;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 4px;
-      font-size: 16px;
-      width: 100%;
-      text-align: left;
-      margin-bottom: 10px;
-    }
-
-    .collapsible:after {
-      content: '\25BC';
-      float: right;
-    }
-
-    .collapsible.active:after {
-      content: '\25B2';
-    }
-
-    .collapsible-content {
-      display: none;
-      padding: 0 15px;
-    }
-
-    #youtube p, #research p {
-      font-size: 18px;
-      text-align: center;
-      color: #888;
-    }
-
     @media (max-width: 768px) {
       .about-container {
         flex-direction: column;
         align-items: center;
       }
+
+      .left-panel {
+        width: 100%;
+        text-align: center;
+      }
+
+      .bio {
+        width: 100%;
+      }
+
       .tab {
         padding: 20px;
       }
@@ -204,19 +154,15 @@
   </style>
   <script>
     function showTab(tabId) {
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active-tab'));
-      document.getElementById(tabId).classList.add('active-tab');
-      document.querySelector("header").style.backgroundImage = tabId === 'about' ? "url('banner-about.jpg')" : "url('banner.jpg')";
-    }
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => tab.classList.remove('active-tab'));
 
-    function toggleTheme() {
-      document.body.classList.toggle('dark-mode');
-    }
+      const selected = document.getElementById(tabId);
+      selected.classList.add('active-tab');
 
-    function toggleCollapse(button) {
-      button.classList.toggle("active");
-      const content = button.nextElementSibling;
-      content.style.display = content.style.display === "block" ? "none" : "block";
+      const header = document.querySelector("header");
+      header.style.backgroundImage = tabId === 'about' ? "url('banner-about.jpg')" : "url('banner.jpg')";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     window.onload = () => showTab('about');
@@ -232,11 +178,10 @@
         <li><a href="#" onclick="showTab('about')">About Me</a></li>
         <li><a href="#" onclick="showTab('publications')">Publications</a></li>
         <li><a href="#" onclick="showTab('research')">Research Activity</a></li>
-        <li><a href="#" onclick="showTab('services')">Bioinformatics</a></li>
+        <li><a href="#" onclick="showTab('services')">Bioinformatics & Statistical Consulting</a></li>
         <li><a href="#" onclick="showTab('youtube')">YouTube</a></li>
-        <li><a href="#" onclick="showTab('contact')">Contact</a></li>
+        <li><a href="#" onclick="showTab('contact')">Contact Me</a></li>
       </ul>
-      <div class="toggle-theme" onclick="toggleTheme()">🌓</div>
     </div>
   </nav>
 
@@ -244,42 +189,123 @@
     <h1>Shailesh Singh, PhD</h1>
   </header>
 
-  <!-- Include your actual content here (About, Research, Publications etc) -->
-  <!-- Use the collapsible example in the publications tab -->
-  <div class="tab" id="publications">
-    <div class="publications-container">
-      <button class="collapsible" onclick="toggleCollapse(this)">Research Articles</button>
-      <div class="collapsible-content">
-        <ul>
-          <li>Sample Research Article 1</li>
-          <li>Sample Research Article 2</li>
-        </ul>
+  <!-- TAB CONTENTS -->
+  <div class="tab" id="about">
+    <div class="about-container">
+      <div class="left-panel">
+        <img src="profile.jpg" alt="Shailesh Singh" class="profile-pic" />
+        <div class="title-box">
+          <p><strong>Dr Shailesh Singh, PhD</strong><br>
+          Former Postdoctoral Research Associate<br>
+          Department of Surgery<br>
+          Sylvester Comprehensive Cancer Center<br>
+          University of Miami Miller School of Medicine</p>
+        </div>
+        <a href="cv.pdf" download class="cv-button" target="_blank">Download CV</a>
       </div>
+      <div class="bio">
+        <p>I am a cancer biologist with a strong interest in deciphering the molecular and cellular mechanisms that drive cancer progression, therapy resistance, and tumor–immune interactions. My current research emphasizes racial disparities in cancer and investigates critical signaling pathways, including Notch and the PPARγ–ELF3 axis. I earned my PhD in Zoology from the prestigious Banaras Hindu University (BHU), India, where I developed a solid foundation in computational biology and insect ecology. During my doctoral research, I discovered a novel autosomal recessive eye color mutant—termed the golden brown eye mutant—in Zeugodacus cucurbitae, adding to the understanding of genetic regulation in insect models. Following my PhD, I completed a postdoctoral fellowship at the University of Miami, Sylvester Comprehensive Cancer Center, where I expanded my expertise in cancer biology, immuno-oncology, and bioinformatics. My technical competencies include single-cell and bulk RNA sequencing and analysis, flow cytometry, mammalian cell culture, in vivo mouse models, and patient-derived tumor models. I am proficient in computational workflows, differential gene expression analysis, and trajectory inference. I actively contribute to collaborative projects involving data analysis, figure generation, and manuscript development.</p>
+        <p>Outside the lab, I am passionate about science communication, staying current with advances in cancer research and immunology, and mentoring early-career researchers in both experimental and computational aspects of biomedical science.</p>
+        <h2>Education</h2>
+<div style="line-height: 1.7; text-align: justify;">
+  <p><strong>PhD in Zoology</strong> | <em>2017–2023</em><br>
+  Department of Zoology, Institute of Science<br>
+  Banaras Hindu University, Varanasi, India<br>
+  <strong>Thesis:</strong> <em>Study on life history traits of a melon fly (<i>Z. cucurbitae</i>) and establishing its genomic and proteomic resources.</em><br>
+  <strong>Supervisor:</strong> Prof. Arvind Kumar Singh</p>
 
-      <button class="collapsible" onclick="toggleCollapse(this)">Book Chapters</button>
-      <div class="collapsible-content">
-        <ul>
-          <li>Sample Book Chapter 1</li>
-          <li>Sample Book Chapter 2</li>
-        </ul>
+  <p><strong>MSc in Zoology</strong> | <em>2014–2016</em><br>
+  Department of Zoology, Institute of Science<br>
+  Banaras Hindu University, Varanasi, India</p>
+
+  <p><strong>BSc (Hons.) in Zoology</strong> | <em>2011–2014</em><br>
+  Department of Zoology, Institute of Science<br>
+  Banaras Hindu University, Varanasi, India</p>
+</div>
       </div>
     </div>
   </div>
 
-  <div class="tab" id="research">
-    <p>Research Activity tab is under construction.</p>
+  <div class="tab" id="publications">
+    <h2>Research Articles</h2>
+    <ul>
+      <li>Shailesh Singh, Megha Das, Rumela Chakrabarti; Abstract 777: Notch signaling dependent chemoresistance in racial disparity in ER+ breast cancer. <i>Cancer Research</i> 15 March 2024; 84: 777. <a href="https://doi.org/10.1158/1538-7445.AM2024-777" target="_blank">Link</a></li>
+      <li>Megha Das, Samantha Henry, Shailesh Singh, Camila Dos Santos, Rumela Chakrabarti; Abstract 179: Identification of a novel crosstalk between MDSC and NKregs in immunotherapy resistant triple negative breast cancer. <i>Cancer Research</i> 15 March 2024; 84: 179. <a href="https://doi.org/10.1158/1538-7445.AM2024-179" target="_blank">Link</a></li>
+      <li>Singh, S., Anjali, & Singh, A.K. (2022). Impact of environmental stress on biochemical profile and fitness traits in Drosophila malerkotliana. <i>Journal of Scientific Research</i>, 66: 68-76.</li>
+      <li>Singh, S., Yadav, N., & Singh, A.K. (2019). An autosomal recessive eye colour mutant of melon fruit fly, Bactrocera cucurbitae (Coquillett). <i>Proceedings of Zoological Society</i>, 73: 251-254. <a href="https://doi.org/10.1007/s12595-019-00304-7" target="_blank">DOI</a></li>
+      <li>Singh, S., Yadav, N., & Singh, A.K. (2019). Sexually dimorphic morphological traits in Bactrocera cucurbitae. <i>Current Life Sciences</i>, 05: 1-6. <a href="https://doi.org/10.5281/zenodo.2553615" target="_blank">DOI</a></li>
+      <li>Singh, S. & Singh, A.K. (2018). Skewed distribution of melon fruit flies owing to colour preference. <i>Indian Journal of Scientific Research</i>, 08: 1-4.</li>
+      <li>Patel, P., Singh, S., et al. (2020). Feeding attributes in Mexican beetle. <i>Journal of Asia-Pacific Entomology</i>, 23: 310-314. <a href="https://doi.org/10.1016/j.aspen.2020.02.004" target="_blank">Link</a></li>
+      <li>Kumar, S., Singh, A.K., and Singh, S. (2018). Random association in Drosophila ananassae. <i>J. Mol. Cell. Biochem.</i>, 02: 1-6.</li>
+      <li>Kumar, S., Singh, A.K., and Singh, S. (2019). Persistence of heterozygosity in Drosophila. <i>Genomics and Genetics</i>, 12: 11-18. <a href="https://doi.org/10.14456/gag.2019.2" target="_blank">Link</a></li>
+    </ul>
+
+    <h2>Book Chapters</h2>
+    <ul>
+      <li>Singh, S., Bhumika, & Singh, A.K. (2020). Intra-sexual Selection. <i>Encyclopedia of Animal Cognition and Behavior</i>. <a href="https://doi.org/10.1007/978-3-319-47829-6_281-1" target="_blank">DOI</a></li>
+      <li>Singh, S., & Singh, A.K. (2020). Nomenclature. <i>Encyclopedia of Animal Cognition and Behavior</i>. <a href="https://doi.org/10.1007/978-3-319-47829-6_1173-1" target="_blank">DOI</a></li>
+      <li>Bhumika & Singh, S. (2020). Artificial Selection. <i>Encyclopedia of Animal Cognition and Behavior</i>. <a href="https://doi.org/10.1007/978-3-319-47829-6_331-1" target="_blank">DOI</a></li>
+      <li>Das, A., Upadhyay, S., Singh, S., Singh, A.K. (2025). Altruism: Kin. <i>Encyclopedia of Religious Psychology and Behavior</i>. <a href="https://doi.org/10.1007/978-3-031-38971-9_682-1" target="_blank">DOI</a></li>
+      <li>Das, A., Upadhyay, S., Singh, S., Singh, A.K. (2025). Evolution: Costly Rituals. <i>Encyclopedia of Religious Psychology and Behavior</i>. <a href="https://doi.org/10.1007/978-3-031-38971-9_1474-1" target="_blank">DOI</a></li>
+    </ul>
   </div>
+
+  <div class="tab" id="research">
+    <h2>Research Activity</h2>
+    <p>Under construction.</p>
+  </div>
+
+  div class="tab" id="services">
+  <h2>Bioinformatics & Statistical Consulting</h2>
+  <p>
+    I am open to academic collaborations and offer specialized bioinformatics and statistical consulting services, with a focus on transcriptomics and high-throughput sequencing data. My work is aimed at supporting robust and reproducible research through expert guidance in data analysis, experimental design, and interpretation.
+  </p>
+
+  <h3>🧬 Single-Cell & Bulk RNA-Seq Analysis</h3>
+  <p>
+    I provide comprehensive analysis pipelines for both single-cell RNA sequencing (scRNA-seq) and bulk RNA-seq datasets to help researchers extract meaningful biological insights from complex transcriptomic data.
+  </p>
+  <ul>
+    <li>Data preprocessing: quality control, alignment, and normalization</li>
+    <li>Dimensionality reduction, clustering, and trajectory inference (for scRNA-seq)</li>
+    <li>Differential gene expression and gene set enrichment analysis</li>
+    <li>Cell type annotation and signature mapping</li>
+    <li>Batch effect correction and dataset integration</li>
+    <li>Pseudotime analysis and cell–cell communication studies</li>
+    <li>Customized visualizations for manuscripts, presentations, and grant proposals</li>
+  </ul>
+
+  <h3>📊 Statistical Analysis & Research Support</h3>
+  <p>
+    I also offer tailored statistical consulting services for basic, preclinical, and clinical research projects.
+  </p>
+  <ul>
+    <li>Support with experimental design and statistical power calculation</li>
+    <li>Parametric and non-parametric hypothesis testing (t-tests, ANOVA, regression, etc.)</li>
+    <li>Survival analysis, model fitting, and multivariate analysis</li>
+    <li>Correlation and association studies</li>
+    <li>Publication-ready plots and data summaries</li>
+  </ul>
+
+  <p>
+    With a strong background in cancer biology and transcriptomics, I approach each project with scientific rigor and precision. My hands-on experience includes working with human single-cell and bulk RNA-seq datasets in the context of cancer biology, immune signaling, and therapeutic response.
+  </p>
+  <p>
+    While I am in the early stages of offering professional services, I am committed to delivering high-quality, transparent, and tailored results aligned with your research goals.
+  </p>
+
+  <p><strong>📩 Interested in collaborating or starting a project?</strong> Please feel free to <a href="#contact" onclick="showTab('contact')">get in touch</a>.</p>
+</div>
 
   <div class="tab" id="youtube">
-    <p>YouTube tab is under construction.</p>
-  </div>
-
-  <div class="tab" id="services">
-    <p>Bioinformatics services content here...</p>
+    <h2>YouTube</h2>
+    <p>Coming soon.</p>
   </div>
 
   <div class="tab" id="contact">
-    <p>Contact information here...</p>
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:sshailesh165@gmail.com">sshailesh165@gmail.com</a></p>
+    <p>Email: <a href="mailto:shailesh.singh1@bhu.ac.in">shailesh.singh1@bhu.ac.in</a></p>
   </div>
 </body>
 </html>
